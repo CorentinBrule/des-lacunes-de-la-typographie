@@ -8,6 +8,7 @@ script python pour Tesseract :
     p=336
     while p<357:
         subprocess.call(["tesseract","-l","fra","../Pages/p"+str(p)+".png","p"+str(p)])
+        p+=1
 
 Corrections typographique avec l'aide de [Grammalecte] (module pour LibreOffice)
 
