@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15/pagecontent.xsd">
+	<Metadata>
+	<Creator></Creator>
+	<Created>2016-08-04T14:51:29</Created>
+	<LastChange>2016-08-04T14:51:29</LastChange></Metadata>
+	<Page imageFilename="p356.png" imageWidth="4131" imageHeight="5847">
+	<TextRegion id="r1" type="paragraph">
+	<Coords points="2237,1079 2237,1134 1900,1134 1900,1079"/></TextRegion>
+	<TextRegion id="r2" type="paragraph">
+	<Coords points="2923,1203 2923,3336 1167,3336 1167,1203"/></TextRegion></Page></PcGts>
