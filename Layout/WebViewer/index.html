@@ -6,10 +6,16 @@
   <link rel="stylesheet" type="text/css" href="style.css" media="screen" charset="utf-8">
 
 </head>
-
+  <menu>
+    <input id="checkboxImage" type="checkbox" value="imagePage" checked="true" onchange="checkImage(this)">Image<br>
+    <input id="checkboxTRs" type="checkbox" value="TextRegion" checked="true" onchange="checkBorders(this)">Text Regions<br>
+    <input id="checkboxTLs" type="checkbox" value="TextLine" onchange="checkBorders(this)">Text Lines<br>
+    <input id="checkboxWs" type="checkbox" value="Word" onchange="checkBorders(this)">Words<br>
+    <input id="checkboxGs" type="checkbox" value="Glyph" onchange="checkBorders(this)">Glyphs<br>
+  </menu>
   <body>
 
-    <img id="imagePage"/>
+    <img id="imagePage" class="imagePage"/>
 
     <div id="layoutPage"></div>
 

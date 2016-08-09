@@ -10,8 +10,32 @@ xhttp.onreadystatechange = function() {
 };
 //xhttp.open("GET", "https://raw.githubusercontent.com/CorentinBrule/des-lacunes-de-la-typographie/master/Layout/T2P-layout-glyphs/ocr-p336.xml", true);
 xhttp.open("GET", "/Layout/T2P-layout-glyphs/ocr-p"+page+".xml", true);
-
 xhttp.send();
+
+function checkImage(self){
+  var div = self.value;
+  if(self.checked){
+    document.querySelector("#"+div).style.display="block";
+  }else{
+    document.querySelector("#"+div).style.display="none";
+  }
+}
+function checkBorders(self){
+  var divs = document.querySelectorAll("."+self.value);
+  var len=divs.length
+  if(self.checked){
+    for(i=0 ; i<len ; i++){
+      divs[i].style.borderStyle="solid";
+    }
+  }else{
+    for(i=0 ; i<len ; i++){
+      divs[i].style.borderStyle="none";
+    }
+  }
+}
+
+
+
 
 function functXML(xml) {
   var response = xml["response"];

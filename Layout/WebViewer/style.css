@@ -1,3 +1,17 @@
+menu{
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  left:0;
+  width:8%;
+  height: 100%;
+  background-color: black;
+  color: white;
+  font-family: monospace;
+  z-index: 1;
+
+}
+
 html{
   margin:0;
   padding:0;
@@ -8,7 +22,7 @@ body{
 }
 
 #imagePage{
-  
+
   /*width: 100%;
   height : auto;*/
   position: absolute;
