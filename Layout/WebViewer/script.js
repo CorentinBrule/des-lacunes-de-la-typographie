@@ -1,4 +1,4 @@
-var page= 336;
+var page= 350;
 var originalSize=[];
 var reduction;
 
@@ -7,14 +7,10 @@ xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
       functXML(xhttp);
     }
-    if (xhttp.readyState == 4 && xhttp.status == 0) {
-      functXML(xhttp);
-    }
 };
 //xhttp.open("GET", "https://raw.githubusercontent.com/CorentinBrule/des-lacunes-de-la-typographie/master/Layout/T2P-layout-glyphs/ocr-p336.xml", true);
 xhttp.open("GET", "/Layout/T2P-layout-glyphs/ocr-p"+page+".xml", true);
 
-//xhttp.open("GET", "https://raw.githubusercontent.com/CorentinBrule/des-lacunes-de-la-typographie/master/Layout/T2P-layout/layout-p336.xml",true);
 xhttp.send();
 
 function functXML(xml) {
