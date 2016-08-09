@@ -20,3 +20,38 @@ p{
   position:absolute;
   border-style: solid;
 }
+
+#layoutPage{
+  position: absolute;
+  color: transparent;
+}
+
+
+.TextRegion{
+  margin: 0;
+  padding: 0;
+  position:absolute;
+  border: 1px solid red;
+}
+
+
+.TextLine{
+  margin: 0;
+  padding: 0;
+  position:absolute;
+  border: 1px solid green;
+}
+
+.Word{
+  margin: 0;
+  padding: 0;
+  position:absolute;
+  border: 1px solid blue;
+}
+
+.Glyph{
+  margin: 0;
+  padding: 0;
+  position:absolute;
+  border: 1px solid yellow;
+}
