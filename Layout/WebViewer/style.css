@@ -51,22 +51,25 @@ p{
 
 
 .TextLine{
+  font-size: initial;
   margin: 0;
   padding: 0;
   position:absolute;
-  border: 1px solid green;
+  border: 1px none green;
 }
 
 .Word{
+  font-size: initial;
   margin: 0;
   padding: 0;
   position:absolute;
-  border: 1px solid blue;
+  border: 1px none blue;
 }
 
 .Glyph{
+  font-size: initial;
   margin: 0;
   padding: 0;
   position:absolute;
-  border: 1px solid yellow;
+  border: 1px none yellow;
 }

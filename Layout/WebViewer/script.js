@@ -22,7 +22,7 @@ function checkImage(self){
 }
 function checkBorders(self){
   var divs = document.querySelectorAll("."+self.value);
-  var len=divs.length
+  var len=divs.length;
   if(self.checked){
     for(i=0 ; i<len ; i++){
       divs[i].style.borderStyle="solid";
@@ -34,6 +34,21 @@ function checkBorders(self){
   }
 }
 
+function checkText(self){
+  var divs = document.querySelectorAll("."+self.value);
+  var len=divs.length;
+  if(self.checked){
+    for(i=0 ; i<len ; i++){
+      divs[i].style.color="black";
+      divs[i].style.fontSize="initial";
+    }
+  }else{
+    for(i=0 ; i<len ; i++){
+      divs[i].style.color="transparent";
+      divs[i].style.fontSize="0";
+    }
+  }
+}
 
 
 
