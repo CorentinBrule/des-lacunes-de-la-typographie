@@ -1,16 +1,28 @@
-var page= 350;
-var originalSize=[];
-var reduction;
+var debPage= 336;
+var finPage=350;
+selector=document.querySelector("#selectPage");
+for(var page = debPage;page<finPage+1;page++){
+  option= document.createElement('option');
+  option.value=page;
+  option.textContent="page n°"+page;
+  selector.appendChild(option);
+  if(page==debPage){option.selected="selected"}
+}
 
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-      functXML(xhttp);
-    }
-};
-//xhttp.open("GET", "https://raw.githubusercontent.com/CorentinBrule/des-lacunes-de-la-typographie/master/Layout/T2P-layout-glyphs/ocr-p336.xml", true);
-xhttp.open("GET", "/Layout/T2P-layout-glyphs/ocr-p"+page+".xml", true);
-xhttp.send();
+document.querySelector("#selectPage").addEventListener('change',function(){
+  loadFile(this.value);
+});
+
+function loadFile(page){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      if (xhttp.readyState == 4 && xhttp.status == 200) {
+        functXML(xhttp);
+      }
+  };
+  xhttp.open("GET", "/Layout/T2P-layout-glyphs/ocr-p"+page+".xml", true);
+  xhttp.send();
+}
 
 function checkImage(self){
   var div = self.value;
@@ -20,6 +32,7 @@ function checkImage(self){
     document.querySelector("#"+div).style.display="none";
   }
 }
+
 function checkBorders(self){
   var divs = document.querySelectorAll("."+self.value);
   var len=divs.length;
@@ -60,8 +73,12 @@ function functXML(xml) {
   //imgpath = "https://raw.githubusercontent.com/CorentinBrule/des-lacunes-de-la-typographie/master/Pages/p336.png";
   imgpath="/Pages/"+xmlDoc.querySelector("Page").getAttribute("imageFilename");
   imgdiv = document.querySelector('#imagePage');
+  imgdiv.style.width="";
+  imgdiv.style.height="";
   imgdiv.src=imgpath;
 
+  var reduction;
+  var originalSize=[];
   imgdiv.onload = function(){
 
     originalSize=[imgdiv.width,imgdiv.height];
@@ -70,6 +87,9 @@ function functXML(xml) {
     reduction=parseInt(originalSize[0])/parseInt(imgdiv.offsetWidth);
 
     layoutdiv = document.querySelector('#layoutPage');
+    while (layoutdiv.firstChild) {
+      layoutdiv.removeChild(layoutdiv.firstChild);
+    }
 
     tRs=xmlDoc.getElementsByTagName("TextRegion");
 
@@ -97,7 +117,7 @@ function functXML(xml) {
     for (i=0; i < layoutElements.length ; i++){
       var element = layoutElements[i];
 
-      offsetCoords=coords2offset(element);
+      offsetCoords=coords2offset(element,reduction);
       element.style.left=String(offsetCoords[0]+"px");
       element.style.top=String(offsetCoords[1]+"px");
       element.style.width=String(offsetCoords[2]+"px");
@@ -129,7 +149,7 @@ function xml2html(parentNode,xmlelement){
 }
 
 
-function coords2offset(element){
+function coords2offset(element,reduction){
   if (element.getElementsByTagName("Coords")[0]!=undefined){
     coords = element.getElementsByTagName("Coords")[0].getAttribute("points");
   }else{
