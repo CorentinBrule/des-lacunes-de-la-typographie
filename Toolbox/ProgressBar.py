@@ -1,4 +1,4 @@
-__author__ = 'texom512'
+__authors__ = "Pistolero, elendil , pythonTim , texom512 from forum.ubuntu-fr.org"
 
 import sys
 import time
