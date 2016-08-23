@@ -2,7 +2,7 @@
 # coding: utf8
 
 import sys,os,subprocess,re
-
+from ProgressBar import *
 from PIL import Image
 from xml.dom import minidom
 folderInputXMLs = sys.argv[1]
@@ -15,27 +15,32 @@ if folderOutputPath[-1]!="/":
 subprocess.call(["mkdir","-p",folderOutputPath])
 
 gobalGlyphCount=0
-
-inputXMLs={}
-inputImgs={}
+#inputs unsorted
+inputXMLs=os.listdir(folderInputXMLs)
+inputImgs=os.listdir(folderInputImgs)
+#inputs sorted and matched
+XMLs={}
+Imgs={}
 # check if the number of PAGE files and page image match.
-if len(os.listdir(folderInputXMLs))==len(os.listdir(folderInputImgs)):
-    for f in os.listdir(folderInputXMLs):
-        # get page number and match it with it XMLPAGE file parsed in a dictionnary : inputXMLs[page] = page.xml
+if len(inputXMLs)==len(inputImgs):
+    for f in inputXMLs:
+        # get page number and match it with it XMLPAGE file parsed in a dictionnary : XMLs[page] = page.xml
         pageXML = re.findall('\d+', f)[0]
-        inputXMLs[pageXML] = minidom.parse(folderInputXMLs+f)
-    for i in os.listdir(folderInputImgs):
-        # get page number and match it with it .png file parsed by PIL in a dictionnary : inputXMLs[page] = page.png
+        XMLs[pageXML] = minidom.parse(folderInputXMLs+f)
+    for i in inputImgs:
+        # get page number and match it with it .png file parsed by PIL in a dictionnary : Imgs[page] = page.png
         pageImg = re.findall('\d+', i)[0]
-        inputImgs[pageImg]= Image.open(folderInputImgs+"/"+i)
+        Imgs[pageImg]= Image.open(folderInputImgs+"/"+i)
 
-    for pageNumber, xmlPage in inputXMLs.items(): # page by page
+    for pageNumber, xmlPage in XMLs.items(): # page by page
 
-        imgPage = inputImgs[pageNumber]
+        imgPage = Imgs[pageNumber]
 
         root = xmlPage.documentElement
         # xml browsing
         nodeGlyphs = root.getElementsByTagName('Glyph')
+
+        BarByPage = ProgressBar(len(nodeGlyphs), 30 , 'Extraction page '+pageNumber)
 
         unicodeChars = []
         coordsCorpList = []
@@ -60,6 +65,8 @@ if len(os.listdir(folderInputXMLs))==len(os.listdir(folderInputImgs)):
             area.save(folderOutputPath+char+pageNumber+"-"+str(gobalGlyphCount)+".png")
             gobalGlyphCount+=1
 
+            BarByPage.update()
             #coordsCorpList.append(coordCrop)
+
 else:
     print("PAGE files and page image don't match")
