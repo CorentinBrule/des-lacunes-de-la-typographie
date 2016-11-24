@@ -48,4 +48,15 @@ après:
 ![n50](clean/a100-n50.png)![n90](clean/a100-n90.png)![n125](clean/a100-n125.png)![n180](clean/a100-n180.png)
 
 [Un point sur les épaisseurs de typographie](http://bigelowandholmes.typepad.com/bigelow-holmes/2015/07/on-font-weight.html)
+
+ou alors avec [ImageMagick](https://www.imagemagick.org/Usage/color_mods/#level) :
+```
+convert {imgSource} -level {mini},{max} {imgOutput}
+convert Glyphes/clean/a100.png -level 45%,55% Glyphes/clean/a100-50pc.png #45% + 55% / 2 = 50pc <-- pourcentage du niveau
+# faire des testes avec des "deltas" différents (55%-45%=10% <- delta du niveau) pour comparer le résulats de la vectorisation.
+```
+delta = 10% ---> ![](clean/a100-n50pc-d10-convert.png)  ![](clean/a100-n50pc-d3-convert.png) <--- delta = 3%
 ## vectorisation
+avec Inkscape en mode GUI ou ligne de commande, ou directement avec [Potrace](http://potrace.sourceforge.net/) puis retouche et simplification du tracé avec inkscape.
+### Simplification du tracé :
+![](clean/a100-vect0.png)![](clean/a100-vect1.png)![](clean/a100-vect2.png)![](clean/a100-vect3.png)![](clean/a100-vect4.png)
