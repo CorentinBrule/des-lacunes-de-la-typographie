@@ -1,6 +1,5 @@
 # TYPOGRAPHIE.
 
-
 Que dire de l’imprimerie en caractères mobiles qui n’ait été répété cent fois, si ce n’est que la mobilisation des 24 lettres de notre alphabet, par *Guttenberg* ou par *Laurent Coster*, *a fait une révolution* aussi grande que le ferait la mobilisation de la propriété foncière : la première facilite autant la transmission des idées que la seconde favoriserait la transmission de l’héritage.
 
 Quand nous dirons que l’art typographique est ﬂorissant en France, on nous répondra que le commerce de la librairie y est si malade que plusieurs exposants ont failli, même pendant l’exposition.
@@ -93,11 +92,7 @@ Si le gouvernement ne vient pas au secours des éditeurs, non pas avec de l’ar
 
 Ceci serve de leçon aux novices qui s’établissent sur les ruines vermoulues des vieux troncs abattus.
 
-
-
-Transports de la librairie par les postes.
-
-
+## Transports de la librairie par les postes.
 
 Serait-il plus difﬁcile de remettre un livre qu’une lettre à domicile, et d’en toucher la valeur que le port ? Non certainement puisque cela se fait déjà en partie ; eh bien ! que cela se fasse en entier, le gouvernement y gagnerait des millions en sauvant la librairie, en répandant les lumières et en réduisant le prix des livres de moitié.
 
@@ -127,7 +122,6 @@ L’éditeur est l’abeille qui produit le miel, l’intermédiaire est le frel
 
 L’éditeur ruiné par le revendeur est tout naturellement contraint de ruiner l’*auteur* ; on se plaint qu’il y mette quelquefois un peu trop de bonne volonté.
 
-
 ## Des lacunes de la typographie.
 
 Le moyen de multiplier les livres par l’impression fut une découverte si merveilleuse que personne semble n’avoir osé se permettre de rien changer à la casse de *Guttenberg* ; elle est bien loin cependant de posséder les signes nécessaires pour exprimer toutes nos manières de voir et de sentir. La preuve en est dans l’impossibilité de bien lire, à livre ouvert, de bien rendre la pensée et les sentiments de l’écrivain ; nous en avons souvent fait l’épreuve avec les professeurs de déclamation réputés pour d’habiles lecteurs ; ils ne pouvaient parcourir une demi-page sans commettre plusieurs contre-sens d’intonation ; il n’en est pas de même de la musique, sa notation est beaucoup plus parfaite ; il serait donc à désirer que messieurs les quarante s’occupassent de perfectionner le *cassier* de nos imprimeurs, sous les divers rapports dont nous allons parler.
@@ -150,7 +144,6 @@ Si notre alphabet eût été conçu plus logiquement qu’il ne l’est, chaque 
 
 En voilà sufﬁsamment pour mettre les amateurs sur la voie de la réforme typographique que nous croyons possible et désirable. Notre système d’écriture est néant : moins beaucoup plus simple que celui des Chinois, et quand nos graveurs n’ont que leurs 24 poinçons, les Chinois en ont 33,000, que M. *Marshman* a trouvé le moyen de réduire à 9,000, et, le croirait-on ! un artiste de Paris, M. *Marcelin Legrand* a osé entreprendre de les graver tous, de façon à rendre praticable la composition du chinois en caractères mobiles. Ce même intrépide graveur a exécuté divers corps de *zend*, un corps de *tamoul*, un corps de *guzaratti*, deux corps de *persépolitain*, un corps de *tibetain*, etc., il faut avoir du Stanislas Julien dans les doigts et dans l’esprit pour se livrer à de pareilles spéculations.
 
-
 Les bons graveurs de caractères de Paris sont MM. *Léger*, *Lœuillet*, *Lombardot*, *Porthant*, etc.; les bons graveurs sur bois sont aujourd’hui, MM. *Brevière* (*Andrew*, *Best*, *Leloir*), *Lacoste*, *Cherriere*, etc.; pour les billets de banque, *Barre*, *Saunier* ; pour les fers de relieurs, *Chesle* ; pour la fonte des caractères, ce sont MM. *Tarbé* (médaille d’or), *Laurent* et *Deberny* (médailles d’argent), *Jubanet* d’Avignon, *Lyon* et *Laboulaye*, *Deschamps* et *Fessin*.
 
 Pour les caractères en alliage plus dur que la fonte ordinaire, on remarquait ceux de M. Colson, de *Clermont-Ferrant*. Son invention convient surtout aux journalistes, qui usent considérablement leurs formes par le taquage et surtout par le nettoyage brutal de la brosse, qui enlève tous les déliés ; heureusement qu’un chimiste polonais vient d’établir chez l’imprimeur Hanicq, de Malines, un procédé dé nettoyage sans brosse, dont cet imprimeur célèbre est on ne peut plus satisfait.
@@ -158,7 +151,6 @@ Pour les caractères en alliage plus dur que la fonte ordinaire, on remarquait c
 Voici ce que nous en savons : la forme, saturée, pendant quelques minutes, de potasse caustique, est ensuite vivement aspergée d’un jet d’eau qui la débarrasse de l’huile saponiﬁée et la laisse dans un état parfait de netteté.
 
 On sent que toutes ces opérations ont lieu sous couvert. La potasse retombe sur un ﬁltre où elle laisse ses ordures, repasse sur un lit de chaux, ou elle se regradue, et tombe enﬁn dans un réservoir, d’où elle est pompée pour servir de nouveau ; c’est à la fois propre, économique et préservateur du caractère : nous le recommandons aux grandes imprimeries surtout.
-
 
 ## Composition de la musique en caractère mobiles.
 
@@ -172,9 +164,7 @@ M. *Basset*, de Dijon, a aussi exposé de la musique en caractères mobiles d’
 
 M. *Bauerkeller* a importé d’Allemagne des procédés de lithotypographie qui lui appartiennent pour l’impression des plans de ville en relief, d’un très-bon effet.
 
-
 ## Impression de grandes afﬁches.
-
 
 Il y a quelques années que les typographes de Paris furent mis aux champs par l’afﬁxion d’énormes placards imprimés d’un seul coup. Didot, qui possédait la plus grande presse connue, n’était qu’un nain à côté de M. *Thuvien*, le titan de la presse, qui cachait soigneusement son procédé.
 
@@ -184,9 +174,7 @@ M. *Thuvien* place ses lettres de bois et ses clichés sur un fond uni, les noir
 
 Du reste, on pourrait aisément imprimer des feuilles grandes comme des tables de billard, en appliquant les formes sur une plaque de fonte de cette dimension, rabotée par les doubles machines à planer, que possède le *Phénix* à Gand. Il existe déjà beaucoup de ces tables en Angleterre.
 
-
 ## Reliure.
-
 
 C’est une belle chose qu’une belle reliure ; mais c’est une folie que de mettre 300 francs dans l’enveloppe d’un volume de 15 fr., comme nous en avons vu. Il n’y avait, du reste, rien de fondamental en fait de reliure, pas même l’invention faite à Vienne de la reliure en tôle estampée, ni celle d’un général bibliophile de notre connaissance, qui consiste eu deux feuilles de plaqué collées à contre-ﬁl et réunissant la légèreté à la solidité.
 
