@@ -73,3 +73,9 @@ p{
   position:absolute;
   border: 1px none yellow;
 }
+
+.caption{
+  display: none;
+  color: black;
+  font-size: initial;
+}
