@@ -55,8 +55,28 @@ convert {imgSource} -level {mini},{max} {imgOutput}
 convert Glyphes/clean/a100.png -level 45%,55% Glyphes/clean/a100-50pc.png #45% + 55% / 2 = 50pc <-- pourcentage du niveau
 # faire des testes avec des "deltas" différents (55%-45%=10% <- delta du niveau) pour comparer le résulats de la vectorisation.
 ```
+avec le script *Toolbox/levels-by-letter.py*
+```
+python Toolbox/levels-by-letter.py {Glyphes/average/average.png} 10 20 30 40 50 60 70 80 90
+```
+
 delta = 10% ---> ![](clean/a100-n50pc-d10-convert.png)  ![](clean/a100-n50pc-d3-convert.png) <--- delta = 3%
+
+*la préparation des bitmap peut-être réalisée aussi avec [mkbitmap](http://potrace.sourceforge.net/mkbitmap.html)*
 ## vectorisation
 avec Inkscape en mode GUI ou ligne de commande, ou directement avec [Potrace](http://potrace.sourceforge.net/) puis retouche et simplification du tracé avec inkscape.
+```
+inkscape -f clean/a100.png --select image10 --verb SelectionTrace #ouvre l'interface graphique d'inkscape directement avec l'outil de cectorisation ouvert
+potrace clean/a100.bmp -s -o test.svg #vectorisation en ligne de commande (voir man potrace)
+```
+`potrace clean/a100.bmp -s -o -a test2.svg`![](clean/test2.svg) `potrace a100.bmp -s --opttolerance 1 -o test4.svg` ![](clean/test4.svg) `potrace a100.bmp -s --opttolerance 2 -o test5.svg` ![](clean/test5.svg)
+
 ### Simplification du tracé :
 ![](clean/a100-vect0.png)![](clean/a100-vect1.png)![](clean/a100-vect2.png)![](clean/a100-vect3.png)![](clean/a100-vect4.png)
+
+## le o et le n
+![o extraction auto](extractionAutomatique2-sorted2/o/o337-22819.png)![o average](average2/oaverage.png)![o level](clean/olevel.png)
+
+![n extraction auto](extractionAutomatique2-sorted2/n/n336-22086.png)![n average](average2/naverage.png)![n level](clean/nlevel.png)
+
+trust your eyes : 30% de niveaux
