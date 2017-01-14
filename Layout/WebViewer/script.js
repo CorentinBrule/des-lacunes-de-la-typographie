@@ -10,6 +10,7 @@ for (var page = debPage; page < finPage + 1; page++) {
         option.selected = "selected"
     }
 }
+document.querySelector("#imagePage").src="/Pages/p" + debPage+".png"; //ok mais s'affiche en trop grand
 
 document.querySelector("#selectPage").addEventListener('change', function() {
     loadFile(this.value);
@@ -159,16 +160,23 @@ function functXML(xml) {
 
             // /!\ problème de z index avec les autres div, ne capte que les Glyphes car elles sont au dessus
             // /!\ problème avec les caption dans l'addEventListener car il sort tout le temps la même (utiliser e,this,target?)
-            /*
-            element.addEventListener("mouseover", function() {
-                if (element.style.borderStyle == "solid") {
+
+            element.addEventListener("mouseover", function(e) {
+                //element.querySelector(".caption").style.display = "block";
+                div = document.querySelector("#"+e.target.id);
+                div.querySelector(".caption").style.display="block";
+                //caption.style.display = "block";
+                /*if (element.style.borderStyle == "solid") {
                     caption.style.display = "block";
                     console.log(caption);
-                }
+                }*/
             });
-            element.addEventListener("mouseout", function() {
-                caption.style.display = "none";
-            });*/
+            element.addEventListener("mouseout", function(e) {
+                div = document.querySelector("#"+e.target.id);
+                div.querySelector(".caption").style.display="none";
+                //element.querySelector(".caption").style.display = "none";
+                //caption.style.display = "none";
+            });
         }
     }
 
