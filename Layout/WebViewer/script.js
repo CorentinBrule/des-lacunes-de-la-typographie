@@ -10,7 +10,7 @@ for (var page = debPage; page < finPage + 1; page++) {
         option.selected = "selected"
     }
 }
-document.querySelector("#imagePage").src="/Pages/p" + debPage+".png"; //ok mais s'affiche en trop grand
+document.querySelector("#imagePage").src = "/Pages/p" + debPage + ".png"; //ok mais s'affiche en trop grand
 
 document.querySelector("#selectPage").addEventListener('change', function() {
     loadFile(this.value);
@@ -66,28 +66,30 @@ function checkText(self) {
     }
 }
 
-focus = document.querySelectorAll(".cbFocus");
-for (var i = 0; i < focus.length; i++) {
-    focus[i].addEventListener("click", function(e) {
-        var TRs = document.querySelectorAll(".TextRegion");
-        var TLs = document.querySelectorAll(".TextLine");
-        var Ws = document.querySelectorAll(".Word");
-        var Gs = document.querySelectorAll(".Glyph");
-        var all = [TRs, TLs, Ws, Gs];
-        var id = e.target.id[2];
+(function checkFocus() {
+    focus = document.querySelectorAll(".cbFocus");
+    for (var i = 0; i < focus.length; i++) {
+        focus[i].addEventListener("click", function(e) {
+            var TRs = document.querySelectorAll(".TextRegion");
+            var TLs = document.querySelectorAll(".TextLine");
+            var Ws = document.querySelectorAll(".Word");
+            var Gs = document.querySelectorAll(".Glyph");
+            var all = [TRs, TLs, Ws, Gs];
+            var id = e.target.id[2];
 
-        for (var j = 0; j < all.length; j++) {
-            for (var k = 0; k < all[j].length; k++) {
-                if (id == j) {
-                    all[j][k].style.pointerEvents = "auto";
-                } else {
-                    all[j][k].style.pointerEvents = "none";
+            for (var j = 0; j < all.length; j++) {
+                for (var k = 0; k < all[j].length; k++) {
+                    if (id == j) {
+                        all[j][k].style.pointerEvents = "auto";
+                    } else {
+                        all[j][k].style.pointerEvents = "none";
+                    }
                 }
             }
-        }
-        //console.log(id);
-    });
-}
+            //console.log(id);
+        });
+    }
+})();
 /*
 function focus(self) { //ne fonctionne pas
     //var div = document.querySelector("."+self.value);
@@ -127,15 +129,15 @@ function functXML(xml) {
 
             tLs = tRs[i].getElementsByTagName("TextLine");
             for (j = 0, jLen = tLs.length; j < jLen; j++) {
-                tL = xml2html(tR, tLs[j])
+                tL = xml2html(tR, tLs[j]);
 
                 words = tLs[j].getElementsByTagName("Word");
                 for (k = 0, kLen = words.length; k < kLen; k++) {
-                    word = xml2html(tL, words[k])
+                    word = xml2html(tL, words[k]);
 
                     glyphs = words[k].getElementsByTagName("Glyph");
                     for (l = 0, lLen = glyphs.length; l < lLen; l++) {
-                        glyph = xml2html(word, glyphs[l])
+                        glyph = xml2html(word, glyphs[l]);
                     }
                 }
             }
@@ -149,8 +151,8 @@ function functXML(xml) {
             coordsRaw = getCoords(element);
             caption = document.createElement("span");
             caption.innerHTML = String(coordsRaw);
-            caption.className = "caption"
-            element.appendChild(caption)
+            caption.className = "caption";
+            element.insertBefore(caption, element.firstChild);
             offsetCoords = coords2offset(coordsRaw, element, reduction);
 
             element.style.left = String(offsetCoords[0] + "px");
@@ -158,24 +160,13 @@ function functXML(xml) {
             element.style.width = String(offsetCoords[2] + "px");
             element.style.height = String(offsetCoords[3] + "px");
 
-            // /!\ problème de z index avec les autres div, ne capte que les Glyphes car elles sont au dessus
-            // /!\ problème avec les caption dans l'addEventListener car il sort tout le temps la même (utiliser e,this,target?)
-
             element.addEventListener("mouseover", function(e) {
-                //element.querySelector(".caption").style.display = "block";
-                div = document.querySelector("#"+e.target.id);
-                div.querySelector(".caption").style.display="block";
-                //caption.style.display = "block";
-                /*if (element.style.borderStyle == "solid") {
-                    caption.style.display = "block";
-                    console.log(caption);
-                }*/
+                var div = document.querySelector("#" + e.target.id);
+                div.querySelector(".caption").style.display = "block";
             });
             element.addEventListener("mouseout", function(e) {
-                div = document.querySelector("#"+e.target.id);
-                div.querySelector(".caption").style.display="none";
-                //element.querySelector(".caption").style.display = "none";
-                //caption.style.display = "none";
+                var div = document.querySelector("#" + e.target.id);
+                div.querySelector(".caption").style.display = "none";
             });
         }
     }
