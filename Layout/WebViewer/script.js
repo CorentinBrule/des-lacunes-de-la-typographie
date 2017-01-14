@@ -65,7 +65,33 @@ function checkText(self) {
     }
 }
 
+focus = document.querySelectorAll(".cbFocus");
+for (var i = 0; i < focus.length; i++) {
+    focus[i].addEventListener("click", function(e) {
+        var TRs = document.querySelectorAll(".TextRegion");
+        var TLs = document.querySelectorAll(".TextLine");
+        var Ws = document.querySelectorAll(".Word");
+        var Gs = document.querySelectorAll(".Glyph");
+        var all = [TRs, TLs, Ws, Gs];
+        var id = e.target.id[2];
 
+        for (var j = 0; j < all.length; j++) {
+            for (var k = 0; k < all[j].length; k++) {
+                if (id == j) {
+                    all[j][k].style.pointerEvents = "auto";
+                } else {
+                    all[j][k].style.pointerEvents = "none";
+                }
+            }
+        }
+        //console.log(id);
+    });
+}
+/*
+function focus(self) { //ne fonctionne pas
+    //var div = document.querySelector("."+self.value);
+    console.log("coucou");
+} */
 
 function functXML(xml) {
     var response = xml["response"];

@@ -9,7 +9,7 @@
   <menu>
     <select id="selectPage" name="Page n°">
     </select>
-    
+
     <input id="checkboxImage" type="checkbox" value="imagePage" checked="true" onchange="checkImage(this)">Image<br>
     <h2>Borders</h2>
     <input id="cbBordersTRs" type="checkbox" value="TextRegion" checked="true" onchange="checkBorders(this)">Text Regions<br>
@@ -17,10 +17,16 @@
     <input id="cbBordersWs" type="checkbox" value="Word" onchange="checkBorders(this)">Words<br>
     <input id="cbBordersGs" type="checkbox" value="Glyph" onchange="checkBorders(this)">Glyphs<br>
     <h2>Text</h2>
-    <input id="cbBordersTRs" type="checkbox" value="TextRegion" onchange="checkText(this)">Text Regions<br>
-    <input id="cbBordersTLs" type="checkbox" value="TextLine" onchange="checkText(this)">Text Lines<br>
-    <input id="cbBordersWs" type="checkbox" value="Word" onchange="checkText(this)">Words<br>
-    <input id="cbBordersGs" type="checkbox" value="Glyph" onchange="checkText(this)">Glyphs<br>
+    <input id="cbTextTRs" type="checkbox" value="TextRegion" onchange="checkText(this)">Text Regions<br>
+    <input id="cbTextTLs" type="checkbox" value="TextLine" onchange="checkText(this)">Text Lines<br>
+    <input id="cbTextWs" type="checkbox" value="Word" onchange="checkText(this)">Words<br>
+    <input id="cbTextGs" type="checkbox" value="Glyph" onchange="checkText(this)">Glyphs<br>
+    <h2>Focus</h2>
+    <input id="cb0FocusTRs" class="cbFocus" type="radio" name="focus" value="TextRegion" checked="true" onclick="focus(this)">Text Regions<br>
+    <input id="cb1FocusTLs" class="cbFocus" type="radio" name="focus" value="TextLine" onclick="focus(this)">Text Lines<br>
+    <input id="cb2FocusWs" class="cbFocus" type="radio" name="focus" value="Word" onclick="focus(this)">Words<br>
+    <input id="cb3FocusGs" class="cbFocus" type="radio" name="focus" value="Glyph" onclick="focus(this)">Glyphs<br>
+
   </menu>
   <body>
 
