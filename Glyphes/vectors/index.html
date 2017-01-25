@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>svg viewer</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+    <script src="raphael.min.js"></script>
+</head>
+
+<body>
+    <object class="obj" data="a30-optiAbs.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <!--<object class="obj" data="b30-vect0.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="c30-vecti.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="d30-vecti.svg" width="200px" height="200px" onload="draw(this)"></object>-->
+
+    <script type="text/javascript">
+        function draw(element) {
+            var svg = element.contentDocument.querySelector("svg");
+            var paths = svg.querySelectorAll("path");
+            var translateX = 0;
+            var translateY = 0;
+
+            if(svg.querySelector("g")!=null){
+              svg = svg.querySelector("g");
+            }
+
+            for (var i = 0; i < paths.length; i++) {
+
+                var path = paths[i];
+
+                var originX = 0;
+                var originY = 0;
+                var px, py, h1x, h1y, h2x, h2y = 0;
+
+                var PSL = path.pathSegList;
+                //Raphael.pathToRelative(path)
+                console.log(PSL);
+                var PTA = Raphael._pathToAbsolute(path.getAttribute("d")); //mais dans quel sens ça sort cette merde ?!
+                console.log(PTA);
+                closePoint = PSL[1];
+                for (var j = 0; j < PSL.length; j++) {
+                    if (PSL[j].constructor.name.match("SVGPathSegMoveto")) {
+                        if (PSL[j].constructor.name == "SVGPathSegMovetoRel") {
+                            //console.log(PSL[i]);
+                            originX = originX + PSL[j].x;
+                            originY = originY + PSL[j].y;
+                        }
+                        if (PSL[j].constructor.name == "SVGPathSegMovetoAbs") {
+                            originX = PSL[j].x;
+                            originY = PSL[j].y;
+                        }
+                        console.log(originX+"/"+originY);
+
+                    }else if(PSL[j].constructor.name == "SVGPathSegClosePath"){
+                      closePointId = findInArray(PSL,j,"x1")
+                      //closePoint=PSL[closePointId];
+                      console.log(closePointId);
+
+                    }else if (PSL[j].constructor.name.match("SVGPathSegCurvetoCubic")) {
+                        //console.log(PSL[j]);
+                        if (PSL[j].constructor.name == "SVGPathSegCurvetoCubicRel") {
+                            px = originX + PSL[j].x;
+                            py = originY + PSL[j].y;
+                            h1x = originX + PSL[j].x1;
+                            h1y = originY + PSL[j].y1;
+                            h2x = originX + PSL[j].x2;
+                            h2y = originY + PSL[j].y2;
+                        }
+
+                        if (PSL[j].constructor.name == "SVGPathSegCurvetoCubicAbs") {
+                            px = PSL[j].x;
+                            py = PSL[j].y;
+                            try{
+                              if(PSL[j+1].constructor.name=="SVGPathSegClosePath"){ //si le prochain element de path est un "closePath", échanger les coordonées du h1 avec le "closePoint"
+                                h1x = closePoint.x1
+                                h1y = closePoint.y1;
+                              }else{ //sinon, décaller le h1 d'un élément
+                                h1x = PSL[j+1].x1;
+                                h1y = PSL[j+1].y1;
+                              }
+                            }catch(TypeError){ //si c'est le dernier élement, faire comme si le prochain était un "closePath"
+                              h1x = closePoint.x1
+                              h1y = closePoint.y1;
+                            }
+
+                            h2x = PSL[j].x2;
+                            h2y = PSL[j].y2;
+                        }
+                        var p = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+                        p.setAttribute("cx", px);
+                        p.setAttribute("cy", py);
+                        p.setAttribute("r", "3");
+                        p.setAttribute("id","path"+i+"p"+j);
+                        p.setAttribute("class", "point");
+                        p.setAttribute("style", "fill:none;stroke:red;stroke-width:0.5;");
+
+                        svg.appendChild(p);
+
+                        var h1 = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+                        h1.setAttribute("cx", h1x);
+                        h1.setAttribute("cy", h1y);
+                        h1.setAttribute("r", "1");
+                        h1.setAttribute("id","path"+i+"h1"+j);
+                        h1.setAttribute("class", "handlePoint");
+                        h1.setAttribute("style", "fill:red;stroke:none;stroke-width:0.5;");
+
+                        svg.appendChild(h1);
+
+                        var h2 = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+                        h2.setAttribute("cx", h2x);
+                        h2.setAttribute("cy", h2y);
+                        h2.setAttribute("r", "1");
+                        h2.setAttribute("id","path"+i+"h2"+j);
+                        h2.setAttribute("class", "handlePoint");
+                        h2.setAttribute("style", "fill:none;stroke:red;stroke-width:0.5;");
+
+                        svg.appendChild(h2);
+
+                        var l1 = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+                        l1.setAttribute("class", "handleLine");
+                        l1.setAttribute("id","path"+i+"l1"+j);
+                        l1.setAttribute("style", "fill:none;stroke:red;stroke-width:0.5;stroke-dasharray:1, 1;");
+                        l1.setAttribute("x1", px);
+                        l1.setAttribute("y1", py);
+                        l1.setAttribute("x2", h1x);
+                        l1.setAttribute("y2", h1y);
+
+                        svg.appendChild(l1);
+
+                        var l2 = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+                        l2.setAttribute("class", "handleLine");
+                        l2.setAttribute("id","path"+i+"l2"+j);
+                        l2.setAttribute("style", "fill:none;stroke:red;stroke-width:0.5;stroke-dasharray:1, 1;");
+                        l2.setAttribute("x1", px);
+                        l2.setAttribute("y1", py);
+                        l2.setAttribute("x2", h2x);
+                        l2.setAttribute("y2", h2y);
+
+                        svg.appendChild(l2);
+                    }
+                }
+            }
+            
+            function findInArray(array,i,something){ // problème avec cette fonction qui trouve le prochain élément qui a une certaine propriété mais même quand elle trouve, elle retourne "undefined"
+              try{
+                if(array[i][something]!=undefined){
+                  console.log("trouvé ! i:",i);
+                  return parseInt(i);
+
+                }else{
+                  console.log("relance la fonction i:",i);
+                  findInArray(array,i+1,something);
+                }
+              }
+              catch(TypeError){
+                console.log("pas trouvé :'(");
+                return -1;
+              }
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

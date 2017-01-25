@@ -9,7 +9,7 @@ python Toolbox/extract-images-from-PAGE.py /Layout/T2P-layout-glyphs /Pages /Gly
 ```
 elles sont enregistrées sous la forme :
 `{char}{numéro}.png`
-![a336-21804.png](extractionAutomatique2/a336-21804.png)
+![a336-21804.png](extractionAutomatique2-sorted2/a/a336-21804.png)
 
 ## tri
 
@@ -69,15 +69,25 @@ python Toolbox/levels-by-letter.py {Glyphes/average/average.png} 10 20 30 40 50 
 delta = 10% ---> ![](clean/a100-n50pc-d10-convert.png)  ![](clean/a100-n50pc-d3-convert.png) <--- delta = 3%
 
 *la préparation des bitmap peut-être réalisée aussi avec [mkbitmap](http://potrace.sourceforge.net/mkbitmap.html)*
+
 ## vectorisation
 avec Inkscape en mode GUI ou ligne de commande, ou directement avec [Potrace](http://potrace.sourceforge.net/) puis retouche et simplification du tracé avec inkscape.
 ```
-inkscape -f clean/a100.png --select image10 --verb SelectionTrace #ouvre l'interface graphique d'inkscape directement avec l'outil de cectorisation ouvert
+inkscape -f clean/a100.png --select image10 --verb SelectionTrace #ouvre l'interface graphique d'inkscape directement avec l'outil de vectorisation ouvert
 potrace clean/a100.bmp -s -o test.svg #vectorisation en ligne de commande (voir man potrace)
 ```
 `potrace clean/a100.bmp -s -o -a test2.svg`![](clean/test2.svg) `potrace a100.bmp -s --opttolerance 1 -o test4.svg` ![](clean/test4.svg) `potrace a100.bmp -s --opttolerance 2 -o test5.svg` ![](clean/test5.svg)
 
+### Qualité du SVG.
+Avec potrace le path est enfant d'une balise "g" avec une grosse transformation. Les coordonnées des points du path sont arrondies après la virgules ! Avec inkscape aussi les tracés sont "optimisés" (mélange de coordonnées relatives et absolues). Pour les passer en absolues :
+> 'Edit> preferences > SVG Output > Path Data' to always use absolute coordinates (i.e. do not allow relative coordinates). This will only affect newly created paths, or existing objects for which a rewrite of the path data is triggered.
+  For existing paths, use 'Edit > Select All in All Layers', and nudge the selection with the arrow keys (e.g. one step up and one back down again). This will trigger a rewrite of the path data in 'd' which will follow the changed preferences for optimized path data. resave.
+
+### Visionner les tracés :
+Visionneuse de tracés, points et poignées : */Glyphes/vectors/index.html* (to do: corriger le décalage entre les handles d'un point à un autre/OK-25-01-17/ mais il reste des problèmes pour les derniers points, après un segClosePath)
+
 ### Simplification du tracé :
+simplification réalisée avec inkscape
 ![](clean/a100-vect0.png)![](clean/a100-vect1.png)![](clean/a100-vect2.png)![](clean/a100-vect3.png)![](clean/a100-vect4.png)
 
 ## le o et le n
