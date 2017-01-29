@@ -70,6 +70,8 @@ delta = 10% ---> ![](clean/a100-n50pc-d10-convert.png)  ![](clean/a100-n50pc-d3-
 
 *la préparation des bitmap peut-être réalisée aussi avec [mkbitmap](http://potrace.sourceforge.net/mkbitmap.html)*
 
+![](GIF.gif)
+
 ## vectorisation
 avec Inkscape en mode GUI ou ligne de commande, ou directement avec [Potrace](http://potrace.sourceforge.net/) puis retouche et simplification du tracé avec inkscape.
 ```
@@ -88,7 +90,9 @@ Visionneuse de tracés, points et poignées : */Glyphes/vectors/index.html* (to 
 
 ### Simplification du tracé :
 simplification réalisée avec inkscape
-![](clean/a100-vect0.png)![](clean/a100-vect1.png)![](clean/a100-vect2.png)![](clean/a100-vect3.png)![](clean/a100-vect4.png)
+![0 simplification](clean/a30-vectInk-simp0-viz.svg)![1 simplification](clean/a30-vectInk-simp1-viz.svg)![2 simplifications](clean/a30-vectInk-simp2-viz.svg)![8 simplifications](clean/a30-vectInk-simp8-viz.svg)![17 simplifications](clean/a30-vectInk-simp17-viz.svg)![24 simplifications](clean/a30-vectInk-simp24-viz.svg)
+(to do : faire un script qui simplifi et sauvegarde le tracé une 30ene de fois et qui génère le html pour la visioneuse.)
+
 
 ## le o et le n
 ![o extraction auto](extractionAutomatique2-sorted2/o/o337-22819.png)![o average](average2/oaverage.png)![o level](clean/olevel.png)
