@@ -1,5 +1,5 @@
 var debPage = 336;
-var finPage = 350;
+var finPage = 356;
 selector = document.querySelector("#selectPage");
 for (var page = debPage; page < finPage + 1; page++) {
     option = document.createElement('option');
@@ -30,9 +30,11 @@ function loadFile(page) {
 function checkImage(self) {
     var div = self.value;
     if (self.checked) {
-        document.querySelector("#" + div).style.display = "block";
+        //document.querySelector("#" + div).style.display = "block";
+        document.querySelector("#" + div).style.opacity = "1";
     } else {
-        document.querySelector("#" + div).style.display = "none";
+        //document.querySelector("#" + div).style.display = "none";
+        document.querySelector("#" + div).style.opacity = "0";
     }
 }
 

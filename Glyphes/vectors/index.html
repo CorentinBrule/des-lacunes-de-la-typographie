@@ -9,10 +9,38 @@
 </head>
 
 <body>
-    <object class="obj" data="a30-optiAbs.svg" width="200px" height="200px" onload="draw(this)"></object>
-    <!--<object class="obj" data="b30-vect0.svg" width="200px" height="200px" onload="draw(this)"></object>
-    <object class="obj" data="c30-vecti.svg" width="200px" height="200px" onload="draw(this)"></object>
-    <object class="obj" data="d30-vecti.svg" width="200px" height="200px" onload="draw(this)"></object>-->
+    <object class="obj" data="a30-vectInk-simp0.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp1.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp2.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp3.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp4.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp5.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp6.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp7.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp8.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp9.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp10.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp11.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp12.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp13.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp14.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp15.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp16.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp17.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp18.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp19.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp20.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp21.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp22.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp23.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp24.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp25.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp26.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp27.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp28.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp29.svg" width="200px" height="200px" onload="draw(this)"></object>
+    <object class="obj" data="a30-vectInk-simp30.svg" width="200px" height="200px" onload="draw(this)"></object>
+
 
     <script type="text/javascript">
         function draw(element) {
@@ -20,6 +48,8 @@
             var paths = svg.querySelectorAll("path");
             var translateX = 0;
             var translateY = 0;
+
+            var countPoint = 0;
 
             if(svg.querySelector("g")!=null){
               svg = svg.querySelector("g");
@@ -138,10 +168,20 @@
                         l2.setAttribute("y2", h2y);
 
                         svg.appendChild(l2);
+
+                        countPoint++;
                     }
                 }
             }
-            
+
+            var counter = document.createElementNS("http://www.w3.org/2000/svg", 'text');
+            counter.innerHTML = countPoint;
+            console.log(countPoint);
+            counter.setAttribute("x",10);
+            counter.setAttribute("y",10);
+            counter.style.fontSize="10px"
+            svg.appendChild(counter);
+
             function findInArray(array,i,something){ // problème avec cette fonction qui trouve le prochain élément qui a une certaine propriété mais même quand elle trouve, elle retourne "undefined"
               try{
                 if(array[i][something]!=undefined){
