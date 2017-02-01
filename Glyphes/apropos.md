@@ -25,6 +25,10 @@ Il faut donc lancer une première fois le script pour trier automatiquement les 
 *TODO : vérifier que ces sous-dossiers de style de charactère ne pose pas de problème au script*
 *attention le script ne duplique pas le fichier originel, il travail directement dans le rootFolder*
 
+![1713 a](clean/a.1713.gif)![259 b](clean/b.259.gif)![669 c](clean/c.669.gif)![259 b](clean/d.970.gif)![259 b](clean/e.3630.gif)![259 b](clean/f.198.gif)![259 b](clean/g.367.gif)![259 b](clean/h.151.gif)![259 b](clean/i.1801.gif)![259 b](clean/j.46.gif)![259 b](clean/k.2.gif)![259 b](clean/l.1376.gif)![259 b](clean/m.590.gif)![259 b](clean/n.1689.gif)![259 b](clean/o.1317.gif)![259 b](clean/p.870.gif)![259 b](clean/q.334.gif)![259 b](clean/r.1801.gif)![259 b](clean/s.2085.gif)![259 b](clean/t.1611.gif)![259 b](clean/u.1544.gif)![259 b](clean/v.342.gif)![259 b](clean/w.2.gif)![259 b](clean/x.142.gif)![259 b](clean/y.66.gif)![259 b](clean/z.24.gif)
+
+*mieux automatiser la création des gifs et générer un fichier markdown avec tous les noms des gif crées pour rapidement vérifier les tris*
+
 ## moyenne
 
 Créer un caractère qui soit représentatif de l'ensemble des glyphes de l'extrait pour gommer et intégrer les erreurs d'impression. Faire la "moyenne" de toutes les glyphes, c'est-à-dire superposer toutes les images du caractère en réduissant leurs oppacités. On utilise pour cela la fonction `convert` de  [ImageMagick](https://www.imagemagick.org/script/index.php)
