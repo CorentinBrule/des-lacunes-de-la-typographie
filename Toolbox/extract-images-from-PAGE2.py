@@ -5,43 +5,12 @@ import sys,os,subprocess,re
 from ProgressBar import *
 from PIL import Image
 from xml.dom import minidom
+
+import extract
+
 folderInputXMLs = sys.argv[1]
 folderInputImgs = sys.argv[2]
 folderOutputPath = sys.argv[3]
-
-def margin(coord,w=2,h=2,W=2,H=2):
-        coord[0][0] -= w
-        coord[0][1] -= h
-        coord[1][0] += W
-        coord[1][1] += H
-        return coord
-
-def extract(node):
-    pageNode = node
-    while "Page" not in pageNode.tagName:
-        pageNode.parentNode
-
-    # get glyph's name (char)
-    pageNum = re.findall(r"\d+",pageNode.getAttribute("imageFilename"))[0] #extract digit
-
-    char = n.getElementsByTagName('Unicode')[0].firstChild.nodeValue
-    unicodeChars.append(char)
-    # get glyph's coords (and parse from xml)
-    coords = n.getElementsByTagName('Coords')[0].getAttribute('points')
-    coords = coords.split(' ')
-    coordCrop = [coords[0].split(','),coords[2].split(',')]
-    for c in coordCrop:
-        c[0]=int(c[0])
-        c[1]=int(c[1])
-
-    textLine = n.parentNode.parentNode #get the textLine parent balise
-
-    # margining
-    coordCrop = margin(coordCrop)
-
-    # crop the image of in the glyph in the image of the page
-    area = imgPage.crop((coordCrop[0][0],coordCrop[0][1],coordCrop[1][0],coordCrop[1][1]))
-    area.save(folderOutputPath+char+pageNum+"-"idGlyph+".png")
 
 #check name and create outputFolder
 if folderOutputPath[-1]!="/":
@@ -76,12 +45,12 @@ if len(inputXMLs)==len(inputImgs):
 
         BarByPage = ProgressBar(len(nodeGlyphs), 30 , 'Extraction page '+pageNumber)
 
-        unicodeChars = []
+        #unicodeChars = []
         coordsCorpList = []
         for n in nodeGlyphs : # glyph by glyph
 
-            extract(pageNumber,n)
-
+            area,outputName = extract.extract(n)
+            area.save(folderOutputPath + outputName)
             BarByPage.update()
             #coordsCorpList.append(coordCrop)
 
